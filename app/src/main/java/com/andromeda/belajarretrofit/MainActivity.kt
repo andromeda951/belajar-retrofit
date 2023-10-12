@@ -24,28 +24,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun getDataFromApi() {
         ApiService.endpoint.getPhotos()
-            .enqueue(object : Callback<List<MainModel>> {
+            .enqueue(object : Callback<MainModel> {
                 override fun onResponse(
-                    call: Call<List<MainModel>>,
-                    response: Response<List<MainModel>>
+                    call: Call<MainModel>,
+                    response: Response<MainModel>
                 ) {
                     if (response.isSuccessful) {
-                        val result = response.body()
 //                        printLog(result.toString())
-                        showPhotos(result!!)
+                        showData(response.body()!!)
                     }
 
                 }
 
-                override fun onFailure(call: Call<List<MainModel>>, t: Throwable) {
+                override fun onFailure(call: Call<MainModel>, t: Throwable) {
                     printLog(t.toString())
                 }
 
             })
     }
 
-    private fun showPhotos(photos: List<MainModel>) {
-        for (photo in photos) {
+    private fun showData(data: MainModel) {
+        val results = data.result
+        for (photo in results) {
             printLog("title: ${photo.title}")
         }
     }

@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiService {
 
-    val BASE_URL: String = "https://jsonplaceholder.typicode.com/"
+    val BASE_URL: String = "http://demo.lazday.com/rest-api-sample/"
     val endpoint: ApiEndpoint
         get() {
             val retrofit = Retrofit.Builder()
