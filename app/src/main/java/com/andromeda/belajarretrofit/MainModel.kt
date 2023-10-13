@@ -1,4 +1,4 @@
-package com.andromeda.belajarretrofit.retrofit
+package com.andromeda.belajarretrofit
 
 data class MainModel(val result: ArrayList<Result>) {
     data class Result(
